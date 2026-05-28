@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Library Management System</title>
+
+<link rel="stylesheet"
+href="/css/home.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+
+📚 LibraryMS
+
+</div>
+
+<ul class="nav-links">
+
+<li>
+
+<a href="/">
+
+Home
+
+</a>
+
+</li>
+
+<li>
+
+<a href="/register-page">
+
+Register
+
+</a>
+
+</li>
+
+<li>
+
+<a href="/login-page">
+
+Login
+
+</a>
+
+</li>
+
+<li>
+
+<button
+id="themeBtn"
+onclick="toggleTheme()">
+
+🌙 Dark
+
+</button>
+
+</li>
+
+</ul>
+
+</nav>
+
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>
+
+Smart Library Management System
+
+</h1>
+
+<p>
+
+Manage books, students, issue books,
+returns and fines with a modern interface.
+
+</p>
+
+<div>
+
+<a href="/login-page">
+
+<button>
+
+Get Started
+
+</button>
+
+</a>
+
+<a href="/register-page">
+
+<button
+class="secondary">
+
+Register
+
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-image">
+
+📚
+
+</div>
+
+</section>
+
+
+<section class="features">
+
+<div class="card">
+
+<h2>
+
+Book Management
+
+</h2>
+
+<p>
+
+Add, update and organize books.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+
+Student Management
+
+</h2>
+
+<p>
+
+Store and manage student records.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+
+Issue & Return
+
+</h2>
+
+<p>
+
+Track issue, return and fine details.
+
+</p>
+
+</div>
+
+</section>
+
+
+<script>
+
+function toggleTheme(){
+
+document.body.classList.toggle(
+"dark");
+
+let btn=
+
+document
+.getElementById(
+"themeBtn");
+
+if(document.body
+.classList.contains(
+"dark")){
+
+btn.innerText=
+"☀ Light";
+
+}
+
+else{
+
+btn.innerText=
+"🌙 Dark";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>

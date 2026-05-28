@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Students</title>
+
+<link rel="stylesheet"
+href="/css/style.css">
+
+</head>
+
+<body>
+
+
+	<div class="navbar">
+
+	<h1>Library Management</h1>
+
+	<div>
+
+	<a href="/dashboard-page">
+	Dashboard
+	</a>
+
+	<a href="/manage-books">
+	Books
+	</a>
+
+	<a href="/manage-students">
+	Students
+	</a>
+
+	<a href="/issue-page">
+	Issue Book
+	</a>
+
+	<a href="/return-page">
+	Return Book
+	</a>
+
+	<a href="#"
+	onclick="logout()">
+
+	Logout
+
+	</a>
+
+	</div>
+
+	</div>
+
+
+
+<div class="form-container">
+
+<input
+type="text"
+id="name"
+placeholder="Name">
+
+
+<input
+type="text"
+id="usn"
+placeholder="USN">
+
+
+<input
+type="text"
+id="email"
+placeholder="Email">
+
+
+<input
+type="text"
+id="mobile"
+placeholder="Mobile">
+
+<input
+type="number"
+id="age"
+placeholder="Age">
+
+
+<button
+onclick="addStudent()">
+
+Add Student
+
+</button>
+
+</div>
+
+
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+
+<th>Name</th>
+
+<th>USN</th>
+
+<th>Email</th>
+
+<th>Mobile</th>
+
+<th>Age</th>
+
+</tr>
+
+</thead>
+
+<tbody id="studentTable">
+
+</tbody>
+
+</table>
+
+
+<script src="/js/students.js">
+
+</script>
+
+</body>
+
+</html>

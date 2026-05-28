@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Books</title>
+
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+	<div class="navbar">
+
+	<h1>Library Management</h1>
+
+	<div>
+
+	<a href="/dashboard-page">
+	Dashboard
+	</a>
+
+	<a href="/manage-books">
+	Books
+	</a>
+
+	<a href="/manage-students">
+	Students
+	</a>
+
+	<a href="/issue-page">
+	Issue Book
+	</a>
+
+	<a href="/return-page">
+	Return Book
+	</a>
+
+	<a href="#"
+	onclick="logout()">
+
+	Logout
+
+	</a>
+
+	</div>
+
+	</div>
+
+<h1>Books Management</h1>
+
+<input
+type="text"
+id="title"
+placeholder="Book Title">
+
+<input
+type="text"
+id="author"
+placeholder="Author">
+
+<input
+type="text"
+id="category"
+placeholder="Category">
+
+<input
+type="number"
+id="price"
+placeholder="Price">
+
+<input
+type="number"
+id="quantity"
+placeholder="Quantity">
+
+<button onclick="addBook()">
+
+Add Book
+
+</button>
+
+
+<table border="1">
+
+<thead>
+
+<tr>
+
+<th>ID</th>
+<th>Title</th>
+<th>Author</th>
+<th>Category</th>
+<th>Quantity</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="bookTable">
+
+</tbody>
+
+</table>
+
+<script src="/js/books.js">
+
+</script>
+
+</body>
+
+</html>
