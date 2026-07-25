@@ -88,6 +88,22 @@ table;
 
 
 async function addStudent(){
+	
+	let email =
+	document.getElementById("email").value.trim();
+
+	let gmailPattern =
+	/^[A-Za-z0-9._%+-]+@gmail\.com$/;
+
+
+	if(!gmailPattern.test(email)){
+
+	    alert(
+	        "Please enter a valid Gmail address"
+	    );
+
+	    return;
+	}
 
 let student={
 

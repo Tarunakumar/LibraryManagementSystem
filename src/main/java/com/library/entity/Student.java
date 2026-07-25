@@ -23,9 +23,16 @@ private Integer id;
 private String name;
 @NotBlank(message = "usn cannot empty!")
 private String usn;
-@Email(message = " Invalid email Format")
-@NotBlank(message = "Email cannot be Empty!")
+
+
+@NotBlank(message = "Email cannot be empty")
+@Email(message = "Invalid email format")
+@Pattern(
+    regexp = "^[A-Za-z0-9._%+-]+@gmail\\.com$",
+    message = "Email must be a valid Gmail address"
+)
 private String email;
+
 @Pattern(
         regexp = "^[6-9][0-9]{9}$",
         message = "Mobile number must contain 10 digits"
