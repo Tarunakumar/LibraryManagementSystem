@@ -1,64 +1,72 @@
 async function register(){
 
-let user={
+    let username =
+        document.getElementById("username").value.trim();
 
-username:
-document.getElementById(
-"username").value,
+    let password =
+        document.getElementById("password").value.trim();
 
-password:
-document.getElementById(
-"password").value,
-
-role:
-document.getElementById(
-"role").value
-
-};
+    let role =
+        document.getElementById("role").value;
 
 
-let response=
+    if(username === "" || password === ""){
 
-await fetch(
-
-"http://localhost:8080/auth/register",
-
-{
-
-method:"POST",
-
-headers:{
-
-"Content-Type":
-"application/json"
-
-},
-
-body:
-JSON.stringify(user)
-
-});
+        alert("Please enter username and password");
+        return;
+    }
 
 
-let msg=
+    let user = {
 
-await response.text();
+        username: username,
+        password: password,
+        role: role
+
+    };
 
 
-if(response.ok){
+    try{
 
-alert(
-"Registered Successfully");
+        let response =
+            await fetch("/auth/register", {
 
-window.location.href=
-"/login-page";
+                method: "POST",
 
-}
+                headers: {
+                    "Content-Type": "application/json"
+                },
 
-else{
+                body: JSON.stringify(user)
 
-alert(msg);
+            });
 
-}
+
+        let msg =
+            await response.text();
+
+
+        if(response.ok){
+
+            alert("Registered Successfully");
+
+            window.location.href =
+                "/login-page";
+
+        }
+        else{
+
+            alert(msg);
+
+        }
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert("Registration failed. Please try again.");
+
+    }
 
 }

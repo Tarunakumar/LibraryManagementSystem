@@ -9,7 +9,7 @@ let response=
 
 await fetch(
 
-"http://localhost:8080/dashboard",
+"/dashboard",
 
 {
 

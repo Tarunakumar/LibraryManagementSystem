@@ -1,69 +1,84 @@
 async function login(){
 
-let user={
+    let username =
+        document.getElementById("username").value.trim();
 
-username:
-document
-.getElementById(
-"username").value,
-
-password:
-document
-.getElementById(
-"password").value
-
-};
+    let password =
+        document.getElementById("password").value.trim();
 
 
-let response=
+    if(username === "" || password === ""){
 
-await fetch(
-
-"http://localhost:8080/auth/login",
-
-{
-
-method:"POST",
-
-headers:{
-
-"Content-Type":
-"application/json"
-
-},
-
-body:
-JSON.stringify(user)
-
-});
+        alert("Please enter username and password");
+        return;
+    }
 
 
-if(response.ok){
+    let user = {
 
-let token=
+        username: username,
+        password: password
 
-await response.text();
-
-
-localStorage.setItem(
-"token",
-token);
+    };
 
 
-alert(
-"Login Successful");
+    try{
+
+        let response =
+            await fetch("/auth/login", {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify(user)
+
+            });
 
 
-window.location.href=
-"/dashboard-page";
+        if(response.ok){
 
-}
+            let token =
+                await response.text();
 
-else{
 
-alert(
-"Invalid Username or Password");
+            localStorage.setItem(
+                "token",
+                token
+            );
 
-}
+
+            alert("Login Successful");
+
+
+            window.location.href =
+                "/dashboard-page";
+
+        }
+        else{
+
+            let message =
+                await response.text();
+
+            console.error(message);
+
+            alert(
+                "Invalid Username or Password"
+            );
+
+        }
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Login failed. Please try again."
+        );
+
+    }
 
 }

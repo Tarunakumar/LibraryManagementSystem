@@ -4,7 +4,7 @@ let response=
 
 await fetch(
 
-"http://localhost:8080/issue",
+"/issue",
 
 {
 
@@ -88,7 +88,7 @@ let response=
 
 await fetch(
 
-"http://localhost:8080/issue/return/"+id,
+"/issue/return/"+id,
 
 {
 

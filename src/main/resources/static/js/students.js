@@ -5,7 +5,7 @@ let response=
 
 await fetch(
 
-"http://localhost:8080/students",
+"/students",
 
 {
 
@@ -140,7 +140,7 @@ let response=
 
 await fetch(
 
-"http://localhost:8080/students",
+"/students",
 
 {
 
@@ -212,7 +212,7 @@ async function deleteStudent(id){
 
 await fetch(
 
-"http://localhost:8080/students/"+id,
+"/students/"+id,
 
 {
 

@@ -13,7 +13,7 @@ let students=
 
 await fetch(
 
-"http://localhost:8080/students",
+"/students",
 
 {
 
@@ -33,7 +33,7 @@ let books=
 
 await fetch(
 
-"http://localhost:8080/books",
+"/books",
 
 {
 
@@ -136,7 +136,7 @@ document
 
 await fetch(
 
-"http://localhost:8080/issue",
+"/issue",
 
 {
 
