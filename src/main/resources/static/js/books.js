@@ -2,9 +2,7 @@ async function loadBooks() {
 
     try{
 
-        let response = await fetch(
-
-        "http://localhost:8080/books",
+        let response = await fetch("/books",
 
         {
 
@@ -114,7 +112,7 @@ let response=
 
 await fetch(
 
-"http://localhost:8080/books",
+"/books",
 
 {
 
@@ -164,7 +162,7 @@ async function deleteBook(id){
 
 await fetch(
 
-"http://localhost:8080/books/"+id,
+"/books/"+id,
 
 {
 

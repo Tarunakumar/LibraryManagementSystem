@@ -3,19 +3,23 @@ package com.library.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders
+        .HttpSecurity;
 
 import org.springframework.security.web.SecurityFilterChain;
 
 import org.springframework.security.web.authentication
-.UsernamePasswordAuthenticationFilter;
+        .UsernamePasswordAuthenticationFilter;
 
 import com.library.filter.JwtFilter;
+
 
 @Configuration
 public class SecurityConfig {
 
+
     private final JwtFilter jwtFilter;
+
 
     public SecurityConfig(
             JwtFilter jwtFilter){
@@ -31,92 +35,99 @@ public class SecurityConfig {
 
             throws Exception {
 
+
         http
 
         .csrf(csrf ->
                 csrf.disable())
 
+
         .authorizeHttpRequests(auth ->
 
-            auth
-
-            // Public pages + APIs
-
-            .requestMatchers(
-
-                    "/",
-
-                    "/login-page",
-
-                    "/register-page",
-
-                    "/auth/**",
-
-                    "/css/**",
-
-                    "/js/**",
-
-                    "/images/**",
-
-                    "/swagger-ui/**",
-
-                    "/swagger-ui.html",
-
-                    "/v3/api-docs/**"
-
-            )
-
-            .permitAll()
+                auth
 
 
-            // UI pages after login
+                // PUBLIC
+                .requestMatchers(
 
-            .requestMatchers(
+                        "/",
 
-                    "/dashboard-page",
+                        "/login-page",
 
-                    "/manage-books",
+                        "/register-page",
 
-                    "/manage-students",
+                        "/auth/**",
 
-                    "/issue-page",
+                        "/css/**",
 
-                    "/return-page"
+                        "/js/**",
 
-            )
+                        "/images/**",
 
-            .permitAll()
+                        "/favicon.ico",
 
-            // API rules
+                        "/swagger-ui/**",
 
-            .requestMatchers(
-                    "/books/**")
+                        "/swagger-ui.html",
 
-            .hasRole("ADMIN")
+                        "/v3/api-docs/**"
 
+                )
 
-            .requestMatchers(
-                    "/students/**")
-
-            .hasAnyRole(
-                    "ADMIN",
-                    "STUDENT")
+                .permitAll()
 
 
-            .requestMatchers(
-                    "/issue/**")
+                // HTML pages
+                .requestMatchers(
 
-            .hasRole("ADMIN")
+                        "/dashboard-page",
+
+                        "/manage-books",
+
+                        "/manage-students",
+
+                        "/issue-page",
+
+                        "/return-page"
+
+                )
+
+                .permitAll()
 
 
-            .anyRequest()
+                // BOOK APIs
+                .requestMatchers(
+                        "/books/**")
 
-            .authenticated()
+                .hasRole("ADMIN")
+
+
+                // STUDENT APIs
+                .requestMatchers(
+                        "/students/**")
+
+                .hasAnyRole(
+                        "ADMIN",
+                        "STUDENT")
+
+
+                // ISSUE/RETURN APIs
+                .requestMatchers(
+                        "/issue/**")
+
+                .hasRole("ADMIN")
+
+
+                .anyRequest()
+
+                .authenticated()
+
         )
+
 
         .formLogin(
                 form ->
-                form.disable());
+                        form.disable());
 
 
         http.addFilterBefore(
@@ -127,8 +138,7 @@ public class SecurityConfig {
 
         );
 
+
         return http.build();
-
     }
-
 }
